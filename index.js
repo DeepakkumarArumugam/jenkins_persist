@@ -2,7 +2,6 @@
 
 'use strict'
 
-var EOL = require('os').EOL
 var mysql = require('mysql')
 
 var database = process.env.MYSQL_DATABASE || 'jenkins'
@@ -31,21 +30,24 @@ var environment = {
   JOB_NAME: process.env.JOB_NAME
 }
 
-var error = function (property) {
-  console.log(property + ' not found.' + EOL + '  Needs `MYSQL_' + property.toUpperCase() + '` set')
+var conn = mysql.createConnection(creds)
+
+var log = function (text) {
+  console.log('[jenkins_persist]: ' + text)
 }
 
 if (!creds.password) {
-  console.log('Set password with MYSQL_PASSWORD environment variable.')
+  console.log('ERR: Set password with MYSQL_PASSWORD environment variable.')
   process.exit()
 }
-
-var conn = mysql.createConnection(creds)
 
 conn.connect()
 
 conn.query('INSERT INTO build_history SET ?', environment, function (err, result) {
   if (err) throw err
+  var row = result.affectedRows === 1 ? 'row' : 'rows'
+  log('Inserted ' + result.affectedRows + ' ' + row + ' into ' + creds.database + '.build_history')
+  log('build_history_id: ' + result.insertId)
 })
 
 conn.end()
