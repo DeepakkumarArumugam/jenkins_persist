@@ -5,12 +5,17 @@
 var EOL = require('os').EOL
 var mysql = require('mysql')
 
+var database = process.env.MYSQL_DATABASE || 'jenkins'
+var host = process.env.MYSQL_HOST || 'localhost'
+var port = process.env.MYSQL_PORT || '3306'
+var user = process.env.MYSQL_USER || 'jenkins'
+
 var creds = {
-  database: process.env.MYSQL_DATABASE,
-  host: process.env.MYSQL_HOST,
+  database: database,
+  host: host,
   password: process.env.MYSQL_PASSWORD,
-  port: process.env.MYSQL_PORT,
-  user: process.env.MYSQL_USER
+  port: port,
+  user: user
 }
 
 var environment = {
@@ -30,11 +35,8 @@ var error = function (property) {
   console.log(property + ' not found.' + EOL + '  Needs `MYSQL_' + property.toUpperCase() + '` set')
 }
 
-if (!creds.database || !creds.host || !creds.password || !creds.user) {
-  if (!creds.database) error('database')
-  if (!creds.host) error('host')
-  if (!creds.password) error('password')
-  if (!creds.user) error('user')
+if (!creds.password) {
+  console.log('Set password with MYSQL_PASSWORD environment variable.')
   process.exit()
 }
 
