@@ -1,20 +1,25 @@
 Jenkins Persist
 ===============
 
-The following variables need to be set in your environment:
+The following defaults can be overriden with environment variables:
 
 ```shell
 export MYSQL_DATABASE='jenkins'
 export MYSQL_HOST='localhost'
-export MYSQL_PASSWORD=<Your password>
 export MYSQL_PORT='3306'
-export MYSQL_USER=<Your username>
+export MYSQL_USER=''
+```
+You will still need to set your password though:
+
+```shell
+export MYSQL_PASSWORD=<Your password>
 ```
 
-1. `git clone`
-2. `cd jenkins_persist`
-3. `npm install`
-4. `mysql --host=<host> --user=<username> -p < create_db.sql` (**Wipes out jenkins DB**)
-5. `source mock_data.sh`
-6. `npm start` or `node .` or `node index.js`
+### Setup:
+
+1. `npm i -g jenkins_persist`
+2. `mysql --host=<host> --user=<username> -p < create_db.sql` (**Wipes out jenkins DB**)
+3. Set your `MYSQL_PASSWORD`
+4. In your jenkins build, add `jenkins_persist` on the end of your shell script.
+
 
