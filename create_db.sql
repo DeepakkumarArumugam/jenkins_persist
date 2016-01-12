@@ -2,7 +2,6 @@ DROP DATABASE IF EXISTS jenkins;
 CREATE DATABASE jenkins; 
 USE jenkins;
 
---DROP TABLE IF EXISTS build_history;
 CREATE TABLE IF NOT EXISTS build_history (
 	build_history_id INT(11) NOT NULL AUTO_INCREMENT,
 	BUILD_ID     VARCHAR(100) DEFAULT NULL,
