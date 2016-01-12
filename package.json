@@ -4,7 +4,7 @@
   "description": "Store build variables in a mysql database",
   "main": "index.js",
   "bin": {
-    "jenkins-persist": "index.js"
+    "jenkins_persist": "index.js"
   },
   "scripts": {
     "start": "node ."
