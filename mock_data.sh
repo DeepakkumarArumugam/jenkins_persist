@@ -13,3 +13,9 @@ export GIT_BRANCH='origin/master'
 export GIT_COMMIT='27d12f0588c22367c6139093804d30da9aceed5a'
 export GIT_URL='git@github.com:test/fake-repo.git'
 export JOB_NAME='testproject'
+
+# Mysql config
+export MYSQL_DATABASE='jenkins'
+export MYSQL_HOST='localhost'
+export MYSQL_PASSWORD='k00lk31th'
+export MYSQL_USER='root'
