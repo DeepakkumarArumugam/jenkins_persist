@@ -1,5 +1,5 @@
 {
-  "name": "jenkins_persist",
+  "name": "jenkins-persist",
   "version": "0.1.1",
   "description": "Store build variables in a mysql database",
   "main": "index.js",
@@ -23,6 +23,6 @@
   },
   "eslintConfig": {
     "extends": "standard",
-    "plugins": [ "standard" ]
+    "plugins": "standard"
   }
 }
