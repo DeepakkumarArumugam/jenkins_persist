@@ -1,0 +1,6 @@
+---
+env:
+  jasmine: true
+  shelljs: true
+extends: standard
+plugins: standard
