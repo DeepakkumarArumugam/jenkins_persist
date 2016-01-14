@@ -1,6 +1,6 @@
 {
   "name": "jenkins-persist",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "description": "Store build variables in a mysql database",
   "main": "index.js",
   "bin": {
