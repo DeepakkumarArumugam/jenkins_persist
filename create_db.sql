@@ -34,3 +34,5 @@ CREATE TABLE jenkins.release (
 
 CREATE UNIQUE INDEX release_BUILD_TAG_IDX ON jenkins.`release` (BUILD_TAG);
 CREATE UNIQUE INDEX build_history_BUILD_TAG_IDX ON jenkins.`build_history` (BUILD_TAG);
+
+ALTER TABLE jenkins.`release` ADD CONSTRAINT release_build_history_FK FOREIGN KEY (build_history_id) REFERENCES jenkins.build_history(build_history_id);
