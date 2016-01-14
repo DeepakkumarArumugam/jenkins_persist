@@ -15,13 +15,7 @@ You will still need to set your password though:
 export MYSQL_PASSWORD=<Your password>
 ```
 
-### Setup:
-
-1. `npm i -g jenkins_persist`
-2. `mysql --host=<host> --user=<username> -p < create_db.sql` (**Wipes out jenkins DB**)
-3. Set your `MYSQL_PASSWORD`
-
-See `jenkins_persist --help` for options:
+See `jenkins-persist --help` for options:
 
 	Usage:
 	  jenkins-persist [options]
