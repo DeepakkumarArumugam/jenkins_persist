@@ -20,7 +20,7 @@ describe('the insert success message', function () {
 
 describe('the log', function () {
   it('should return a prepended string', function () {
-    var unhook = hook.setup(function (string, encoding, fd) {
+    var unhook = hook.setup(function (string) {
       return expect(string).toContain('[jenkins-persist]: test')
     })
     u.log('test')
